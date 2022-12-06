@@ -1,1 +1,1 @@
-[]
+[{"s_id": "12", "drop_cours": "2", "take_cours": "3"}, {"s_id": "", "drop_cours": "", "take_cours": ""}, {"s_id": "12", "drop_cours": "2", "take_cours": "3"}, {"s_id": "12", "drop_cours": "2", "take_cours": "3"}]
