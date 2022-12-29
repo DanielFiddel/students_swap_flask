@@ -1,1 +1,1 @@
-[{"s_id": "", "drop_cours": "", "take_cours": ""}]
+[]
