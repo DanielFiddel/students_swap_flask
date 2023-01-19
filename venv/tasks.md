@@ -1,6 +1,8 @@
 tasks
 ===
 - [ ] loops of More than 2 students
+	- [x] stop infi loop and save loops
+	- [ ] find all loops
 - [ ] Save more than one loop
 	- [ ] test loop of three
 - [ ] Ineterface for the secretary
