@@ -2,7 +2,8 @@ tasks
 ===
 - [ ] loops of More than 2 students
 	- [x] stop infi loop and save loops
-	- [ ] find all loops
+	- [x] find all loops
+	- [ ] test
 - [ ] Save more than one loop
 	- [ ] test loop of three
 - [ ] Ineterface for the secretary
@@ -10,7 +11,7 @@ tasks
 - [ ] minimal graphics
 - [ ] Graphics for the students
 - [ ] Show various loop optioons to the student/secretary
-- [ ] Find maximum loop
 - [ ] Relrvant timings
+- [x] Find maximum loop
 - [x] option to bailout for student
 - [x] show queue

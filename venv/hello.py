@@ -50,15 +50,19 @@ def POST_ping():
 		ts_data = json.load(ts)
 		#print(ts_data, type(ts_data))
 	
-	pair, ts_data = pair_student(ts_data, data)
+	#pair, ts_data = pair_student(ts_data, data)
+	ts_data.append(data)
 	
 	with open("test.txt", "w") as ts:
 		#print(ts_data)
 		json.dump(ts_data, ts)
 	
-	print(find_loops())
+	find_loops()
 	
-	return pair
+	with open("loops.txt", "r") as loops:
+		loops_data = json.load(loops)
+	
+	return loops_data
 
 def pair_student(std_list, new_std):
 	#print("test")
@@ -97,30 +101,39 @@ def find_loops():
 			nodes[st["drop_cours"]] = [st]
 	
 	#print(list(nodes.values())[0][0])
-	loop(nodes, list(nodes.values())[0][0], [])
+	with open("loops.txt", "w") as lp:
+		json.dump([], lp)
+	
+	for cours in list(nodes.values()):
+		loop(nodes, cours[0], [])
 	
 	return nodes
 	
 def loop(nodes, head_st, current_loop):
-	print(head_st)
+	#print(head_st)
 	for cours in nodes:
 		#print(nodes[cours], end="\n")
 		for st in nodes[cours]:
 			if head_st["s_id"] != st["s_id"] and head_st["drop_cours"] == st["take_cours"]:
 				if(head_st in current_loop):
-					with open("loops.txt", "r") as lp:
-						lp_data = json.load(lp)
-					
-					lp_data.append(current_loop)
-					
-					with open("loops.txt", "w") as lp:
-						json.dump(lp_data, lp)
+					min_id = min(map(lambda s: int(s["s_id"]), current_loop))
+					if(int(current_loop[0]["s_id"])) == min_id:
+						with open("loops.txt", "r") as lp:
+							lp_data = json.load(lp)
+						
+						lp_data.append(current_loop)
+						
+						with open("loops.txt", "w") as lp:
+							json.dump(lp_data, lp)
 						
 					return
 				
 				current_loop.append(head_st)
 				loop(nodes, st, current_loop)
-				
+	return
+
+
+
 
 
 
